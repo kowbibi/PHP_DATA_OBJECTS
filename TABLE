@@ -1,0 +1,39 @@
+CREATE TABLE Customers (
+ CustomerID INT PRIMARY KEY,
+ Name VARCHAR(100),
+ ContactInfo VARCHAR(100)
+);
+CREATE TABLE Parts (
+ PartID INT PRIMARY KEY,
+ PartName VARCHAR(100),
+ Price DECIMAL(10, 2),
+ Stock INT
+);
+CREATE TABLE Services (
+ ServiceID INT PRIMARY KEY,
+ ServiceDescription VARCHAR(200),
+ ServiceCost DECIMAL(10, 2)
+);
+CREATE TABLE Staff (
+ StaffID INT PRIMARY KEY,
+ Name VARCHAR(100),
+ Role VARCHAR(50)
+);
+CREATE TABLE Transactions (
+ TransactionID INT PRIMARY KEY,
+ CustomerID INT,
+ StaffID INT,
+ TransactionDate DATE,
+ ServiceID INT,
+ FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
+ FOREIGN KEY (StaffID) REFERENCES Staff(StaffID),
+ FOREIGN KEY (ServiceID) REFERENCES Services(ServiceID)
+);
+CREATE TABLE TransactionParts (
+ TransactionID INT,
+ PartID INT,
+ Quantity INT,
+ PRIMARY KEY (TransactionID, PartID),
+ FOREIGN KEY (TransactionID) REFERENCES Transactions(TransactionID),
+ FOREIGN KEY (PartID) REFERENCES Parts(PartID)
+);
