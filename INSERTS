@@ -1,0 +1,42 @@
+insert into customers (customerid, name, contactinfo)
+values
+ (1, 'john doe', '123-456-7890'),
+ (2, 'alice smith', '987-654-3210'),
+ (3, 'bob johnson', '555-123-4567'),
+ (4, 'emily davis', '555-987-6543'),
+ (5, 'michael brown', '555-555-5555');
+insert into parts (partid, partname, price, stock)
+values
+ (1, 'graphics card', 500.00, 10),
+ (2, 'hard drive', 100.00, 25),
+ (3, 'ram', 75.00, 15),
+ (4, 'motherboard', 150.00, 5),
+ (5, 'power supply', 85.00, 20);
+insert into services (serviceid, servicedescription, servicecost)
+values
+ (1, 'pc repair', 100.00),
+ (2, 'software installation', 50.00),
+ (3, 'system upgrade', 200.00),
+ (4, 'virus removal', 75.00),
+ (5, 'data recovery', 150.00);
+insert into staff (staffid, name, role)
+values
+ (1, 'tom green', 'salesperson'),
+ (2, 'jane brown', 'technician'),
+ (3, 'susan lee', 'manager'),
+ (4, 'david wilson', 'salesperson'),
+ (5, 'laura adams', 'technician');
+insert into transactions (transactionid, customerid, staffid, transactiondate, serviceid)
+values
+ (1, 1, 2, '2024-09-05', 1),
+ (2, 2, 1, '2024-09-07', 2),
+ (3, 3, 3, '2024-09-10', 3),
+ (4, 4, 4, '2024-09-12', 4),
+ (5, 5, 5, '2024-09-15', 5);
+insert into transactionparts (transactionid, partid, quantity)
+values
+ (1, 1, 1), -- 1 graphics card sold in transaction 1
+ (1, 3, 2), -- 2 rams sold in transaction 1
+ (2, 2, 1), -- 1 hard drive sold in transaction 2
+ (3, 4, 1), -- 1 motherboard sold in transaction 3
+ (4, 5, 1); -- 1 power supply sold in transaction 4
